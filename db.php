@@ -1,16 +1,22 @@
 <?php
-$hostname = "";
-$username = "";
-$password = "";
+$hostname = "sql2.njit.edu";
+$username = "smv36";
+$password = "NMZrAc4QP";
+$dbasename="smv36";
 $conn = NULL;
 try 
 {
-    $conn = new PDO("mysql:host=$hostname;dbname=",
+    $conn = new PDO("mysql:host=$hostname;dbname=$dbasename",
     $username, $password);
+    if ($conn){
+    echo "Connected successfully";
+    echo "<br>";
+    echo "<br>";}
 }
 catch(PDOException $e)
 {
-	// echo "Connection failed: " . $e->getMessage();
+	echo "Connection failed: " . $e->getMessage();
+	echo "<br>";
 	http_error("500 Internal Server Error\n\n"."There was a SQL error:\n\n" . $e->getMessage());
 }
 
