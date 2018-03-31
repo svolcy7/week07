@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="container" style="color:black"> 
+  <div class="container" style="color:blue"> 
     <form method="get" action="test_db.php" >
       <div class="form-group">
         <label>Task:</label>
@@ -19,9 +19,8 @@
         <select name="case_label">
           <option value="insert">insert</option>
           <option value="update">update</option>
+          <option value="select">select</option>
           <option value="delete">delete</option>
-          <option value="down dir">down dir</option>
-          <option value="nonexist label">nonexist label</option>
         </select>
       </div>
       <div class="form-group">
