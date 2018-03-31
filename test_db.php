@@ -10,11 +10,11 @@ $mode = $_GET["case_label"];
 switch ($mode) {
   case 'insert':
     $date = date('Y-m-d',time());
-    $sql = "insert into accounts (email, fname, lname,phone, birthday,
-    gender,password) values ('volcsa@gmail.com','Blaise', 'Pascal','1458','$date','Male','Njit21');";
+    $sql = "insert into accounts (email, fname, lname,phone, birthday,gender,password) values ('volcsa@gmail.com','Blaise', 'Pascal','1458','$date','Male','Njit21');";
     $results = runQuery($sql);
     header("Location: index.php");
-    break;
+    return $results;
+  
     
     
 }}
@@ -26,7 +26,7 @@ switch ($mode) {
     $sql ="update accounts set password = '4321' where fname = '$fname' ";
     $results = runQuery($sql);
     header("Location: index.php");
-    break;
+    return $results;
     
     }
   }
@@ -37,7 +37,7 @@ switch ($mode) {
     $sql = "select * from accounts";
     $results = runQuery($sql);
     header("Location: index.php");
-    break;
+    return $results;
     }
  }
     public function delete(){
@@ -48,7 +48,7 @@ switch ($mode) {
     $sql ="delete from accounts where fname = '$fname' ";
     $results = runQuery($sql);
     header("Location: index.php");
-    break;
+   return $results;
     }
   }
 
@@ -59,10 +59,12 @@ switch ($mode) {
 $insertion = new User;
 $updation = new User;
 $deletion = new User;
+$selection = new User;
 
- echo $insertion->insert();
+echo $insertion->insert();
 echo $updation->delete();
 echo $deletion->update();
+echo $selection->select();
 
 
  
